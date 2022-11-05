@@ -1,0 +1,15 @@
+set nu
+syntax on
+set background=dark
+colorscheme iceberg
+set autoindent
+filetype indent on
+set tabstop			=4
+set shiftwidth		=4
+set scrolloff		=8
+set sidescrolloff	=8
+set number
+set relativenumber
+set smartcase
+set ignorecase
+set clipboard		=unnamed
