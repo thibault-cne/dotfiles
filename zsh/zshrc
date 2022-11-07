@@ -26,6 +26,11 @@ alias gdb="x86_64-elf-gdb"
 
 # Git
 alias gs="git status"
+alias ga="git add"
+alias gc="git commit"
+alias gp="git push"
+alias gname="git config user.name"
+alias gmail="git config user.email"
 
 # Custom USER and EMAIL values
 export USER="Thibault Cheneviere"
