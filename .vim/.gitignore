@@ -1,2 +1,5 @@
 .netrwhist
 .vimlog
+autoload
+colors/*.vim
+!colors/iceberg.vim
