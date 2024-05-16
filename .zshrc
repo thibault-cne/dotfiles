@@ -14,7 +14,8 @@ source $ZSH/oh-my-zsh.sh
 #--------------------------------------------------------------------------
 
 alias gdb="x86_64-elf-gdb"
-alias ls="exa"
+alias ls="eza --icons -F -H --group-directories-first --git -1"
+alias cp="z"
 
 # Git
 alias gs="git status"
@@ -33,7 +34,19 @@ export MAIL="thibault.cheneviere@telecomnancy.eu"
 # Display on start
 #--------------------------------------------------------------------------
 
-figlet -c "Hello" $USER
+fastfetch
+
+#--------------------------------------------------------------------------
+# fzf
+#--------------------------------------------------------------------------
+
+source <(fzf --zsh)
+
+#--------------------------------------------------------------------------
+# Zoxide
+#--------------------------------------------------------------------------
+
+eval "$(zoxide init zsh)"
 
 #--------------------------------------------------------------------------
 # Starship
@@ -58,12 +71,8 @@ eval "$(jenv init -)"
 export PATH="$PATH:$(go env GOPATH)/bin"
 
 #--------------------------------------------------------------------------
-# Doom emacs
+# Tools
 #--------------------------------------------------------------------------
-
-export PATH="$PATH:$HOME/.emacs.d/bin"
-
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 # pnpm
 export PNPM_HOME="/Users/thibault/Library/pnpm"
@@ -71,4 +80,10 @@ case ":$PATH:" in
   *":$PNPM_HOME:"*) ;;
   *) export PATH="$PNPM_HOME:$PATH" ;;
 esac
-# pnpm end
+
+#--------------------------------------------------------------------------
+# GPG
+#--------------------------------------------------------------------------
+
+export GPG_TTY=$(tty)
+gpgconf --launch gpg-agent
