@@ -1,7 +1,5 @@
-# Get editor completions based on the config schema
-"$schema" = 'https://starship.rs/config-schema.json'
-
-format = """$directory\
+format = """
+$directory\
 $git_branch\
 $git_commit\
 $git_state\
@@ -18,84 +16,93 @@ $deno\
 $rust\
 $bun\
 $golang\
+${custom.docker}\
 $env_var\
 $cmd_duration\
 $time\
 $jobs\
 $line_break\
-${custom.warp}"""
+${custom.warp}\
+"""
 
 add_newline = false
 
 command_timeout = 1000
 
 [character]
-success_symbol = "[;](bold green)"
-error_symbol = "[;](bold red)"
-vimcmd_symbol = "[#](bold red)"
+success_symbol = '[;](bold green)'
+error_symbol = '[;](bold red)'
+vimcmd_symbol = '[#](bold red)'
 
 [time]
 disabled = false
-time_format = "%X"
-format = "at [$time]($style)"
-style = "bold 243"
+time_format = '%X'
+format = 'at [$time]($style)'
+style = 'bold 243'
 
 [directory]
 truncate_to_repo = false
 truncation_length = 17
-truncation_symbol = "../"
-read_only = " "
+truncation_symbol = '../'
+read_only = ' '
 
 [directory.substitutions]
-"~/Developer/M8FINDER" = "/M8"
+'~/Developer/M8FINDER' = '/M8'
 
 [python]
-python_binary = "python3"
+python_binary = 'python3'
 format = 'via [${symbol}${pyenv_prefix}(${version} )(\($virtualenv\) )]($style)'
-symbol = "󰌠 "
+symbol = '󰌠 '
 
 [swift]
-symbol = " "
+symbol = ' '
 
 [package]
-symbol = "󰏗 "
+symbol = '󰏗 '
 display_private = true
 
 [git_branch]
-symbol = " "
+symbol = ' '
 
 [git_commit]
-tag_symbol = " "
+tag_symbol = ' '
 
 [git_status]
-conflicted = ""
-deleted = "${count}"
+conflicted = ''
+deleted = '${count}'
 staged = '[++\($count\)](green)'
 ahead = '${count}'
 diverged = '󰕚${ahead_count}${behind_count}'
 behind = '${count}'
 
 [golang]
-symbol = " "
+symbol = ' '
 
 [php]
-symbol = " "
+symbol = ' '
 
 [rust]
-symbol = " "
+symbol = ' '
 
 [sudo]
 style = 'bold red'
 symbol = '! '
 disabled = false
 
+[custom.docker]
+description = 'Shows the docker symbol if the current directory has Dockerfile or docker-compose.yml files'
+command = 'echo 🐳'
+detect_files = ['Dockerfile', 'docker-compose.yml', 'docker-compose.yaml']
+when = 'command -v docker &> /dev/null; exit (echo $?);'
+format = 'on $output '
+
 [custom.warp]
 command = '''
 if test %? == 0;
-  echo -e "\e[31m;";
+  echo -e '\e[31m;';
 else;
-  echo -e "\e[32m;";
+  echo -e '\e[32m;';
 end
 '''
-format = "$output "
-when = 'if test "$TERM_PROGRAM" = "WarpTerminal"; exit 1; end'
+when = "if test '$TERM_PROGRAM' = 'WarpTerminal'; exit 1; end"
+format = '$output '
