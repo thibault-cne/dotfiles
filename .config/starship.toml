@@ -22,7 +22,7 @@ $cmd_duration\
 $time\
 $jobs\
 $line_break\
-${custom.warp}\
+$character\
 """
 
 add_newline = false
@@ -30,9 +30,8 @@ add_newline = false
 command_timeout = 1000
 
 [character]
-success_symbol = '[;](bold green)'
-error_symbol = '[;](bold red)'
-vimcmd_symbol = '[#](bold red)'
+success_symbol = "[➜](bold green)"
+error_symbol = "[✗](bold red)"
 
 [time]
 disabled = false
@@ -45,9 +44,6 @@ truncate_to_repo = false
 truncation_length = 17
 truncation_symbol = '../'
 read_only = ' '
-
-[directory.substitutions]
-'~/Developer/M8FINDER' = '/M8'
 
 [python]
 python_binary = 'python3'
@@ -95,14 +91,3 @@ command = 'echo 🐳'
 detect_files = ['Dockerfile', 'docker-compose.yml', 'docker-compose.yaml']
 when = 'command -v docker &> /dev/null; exit (echo $?);'
 format = 'on $output '
-
-[custom.warp]
-command = '''
-if test %? == 0;
-  echo -e '\e[31m;';
-else;
-  echo -e '\e[32m;';
-end
-'''
-when = "if test '$TERM_PROGRAM' = 'WarpTerminal'; exit 1; end"
-format = '$output '

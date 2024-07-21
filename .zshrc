@@ -15,13 +15,19 @@ source $ZSH/oh-my-zsh.sh
 
 alias gdb="x86_64-elf-gdb"
 alias ls="eza --icons -F -H --group-directories-first --git -1"
-alias cp="z"
+alias cd="z"
 
 # Git
 alias gs="git status"
+
 alias ga="git add"
+alias gaa="git add ."
+
 alias gc="git commit"
+alias gcm="git commit -m"
+
 alias gp="git push"
+
 alias gname="git config user.name"
 alias gmail="git config user.email"
 

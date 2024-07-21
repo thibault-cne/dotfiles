@@ -1,0 +1,28 @@
+[user]
+	email = thibault.chene23@gmail.com
+	name = Thibault Cheneviere
+	signingKey = 235FB7994CF64CC89D50AE9FC2A6FB2368B02E97
+[alias]
+	logs = log --show-signature
+	aa = add --all
+	cm = commit -m
+[core]
+	editor = hx
+	autocrlf = false
+[gpg]
+	program = gpg
+[commit]
+	gpgsign = true
+[tag]
+	forceSignAnnotated = true
+[filter "lfs"]
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true
+[pull]
+	rebase = true
+[push]
+	default = simple
+	followTags = true
+	autoSetupRemote = true

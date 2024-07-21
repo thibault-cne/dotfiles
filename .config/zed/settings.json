@@ -9,6 +9,7 @@
 {
   "languages": {
     "Rust": {
+      "show_inline_completions": false,
       "show_copilot_suggestions": false
     }
   },
