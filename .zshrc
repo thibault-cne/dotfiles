@@ -13,7 +13,6 @@ source $ZSH/oh-my-zsh.sh
 # Aliases
 #--------------------------------------------------------------------------
 
-alias gdb="x86_64-elf-gdb"
 alias ls="eza --icons -F -H --group-directories-first --git -1"
 alias cd="z"
 
@@ -32,8 +31,15 @@ alias gname="git config user.name"
 alias gmail="git config user.email"
 
 # Custom USER and EMAIL values
-export USER="Thibault Cheneviere"
-export MAIL="thibault.cheneviere@telecomnancy.eu"
+export USER="thibault"
+export MAIL="thibault.chene23@gmail.com"
+export FULL_NAME="Thibault Cheneviere"
+
+git config --global user.name $FULL_NAME
+git config --global user.email $MAIL
+
+# Set git editor to helix
+export GIT_EDITOR=hx
 
 
 #--------------------------------------------------------------------------
@@ -65,7 +71,7 @@ eval "$(starship init zsh)"
 #--------------------------------------------------------------------------
 
 export PATH="$PATH:/Users/thibault/developement/flutter/bin"
-export PATH="$HOME/.jenv/bin:$PATH"
+export PATH="$PATH:$HOME/.jenv/bin"
 eval "$(jenv init -)"
 
 
@@ -84,7 +90,7 @@ export PATH="$PATH:$(go env GOPATH)/bin"
 export PNPM_HOME="/Users/thibault/Library/pnpm"
 case ":$PATH:" in
   *":$PNPM_HOME:"*) ;;
-  *) export PATH="$PNPM_HOME:$PATH" ;;
+  *) export PATH="$PATH:$PNPM_HOME" ;;
 esac
 
 #--------------------------------------------------------------------------
@@ -93,3 +99,17 @@ esac
 
 export GPG_TTY=$(tty)
 gpgconf --launch gpg-agent
+
+#--------------------------------------------------------------------------
+# Path addons
+#--------------------------------------------------------------------------
+
+# Add llvm binaries
+export PATH="$PATH:/opt/homebrew/opt/llvm/bin"
+
+# bun completions
+[ -s "/Users/thibault/.bun/_bun" ] && source "/Users/thibault/.bun/_bun"
+
+# bun
+export BUN_INSTALL="$HOME/.bun"
+export PATH="$BUN_INSTALL/bin:$PATH"

@@ -22,16 +22,20 @@ $cmd_duration\
 $time\
 $jobs\
 $line_break\
-$character\
+$status
 """
 
 add_newline = false
 
 command_timeout = 1000
 
-[character]
+[status]
+format = " [$status]($style) $symbol "
+disabled = false
 success_symbol = "[➜](bold green)"
-error_symbol = "[✗](bold red)"
+symbol = "[✗](bold red)"
+style = "bold red"
+success_style = "bold green"
 
 [time]
 disabled = false
@@ -46,7 +50,7 @@ truncation_symbol = '../'
 read_only = ' '
 
 [python]
-python_binary = 'python3'
+python_binary = 'python'
 format = 'via [${symbol}${pyenv_prefix}(${version} )(\($virtualenv\) )]($style)'
 symbol = '󰌠 '
 

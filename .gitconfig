@@ -1,7 +1,7 @@
 [user]
 	email = thibault.chene23@gmail.com
 	name = Thibault Cheneviere
-	signingKey = 235FB7994CF64CC89D50AE9FC2A6FB2368B02E97
+	signingKey = D7726909A7F8A544
 [alias]
 	logs = log --show-signature
 	aa = add --all

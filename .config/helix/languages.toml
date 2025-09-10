@@ -1,9 +1,24 @@
 [[language]]
-name = "rust"
-text-width = 80
-rulers = [80]
+name = "markdown"
+
+[language.auto-pairs]
+'"' = '"'
+'(' = ')'
+'[' = ']'
+'{' = '}'
+"'" = "'"
+
+[language-server.pylsp.config.pylsp]
+plugins.ruff.enabled = true
+plugins.black.enabled = true
+
+[[grammar]]
+name = "hsl"
+source = { git = "https://github.com/hs-lang/tree-sitter-hsl", rev = "a8de070d6dfb76f488ae7042603e293a5dd91d8d" }
 
 [[language]]
-name = "markdown"
-text-width = 80
-rulers = [80]
+name = "hsl"
+scope = "source.hsl"
+file-types = ["hsl"]
+comment-tokens = "<(-.-)>"
+indent = { tab-width = 4, unit = "    " }

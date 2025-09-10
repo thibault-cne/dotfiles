@@ -1,31 +1,23 @@
 {
-  "ssh_connections": [
-    {
-      "host": "oracle-cloud",
-      "projects": [
-        {
-          "paths": ["/home/ubuntu/jail"]
-        }
-      ]
-    }
-  ],
   "buffer_font_family": "JetBrainsMono Nerd Font Mono",
   "buffer_font_size": 16,
   "hour_format": "hour12",
   "languages": {
     "Rust": {
-      "show_edit_predictions": false
+      "show_copilot_suggestions": false,
+      "show_inline_completions": false
     }
   },
   "lsp": {
     "rust-analyzer": {
       "initialization_options": {
-        "check": {
+        "checkOnSave": {
           "command": "clippy"
         }
       }
     }
   },
+  "show_whitespaces": "all",
   "theme": "Rosé Pine Moon",
   "ui_font_size": 16
 }
